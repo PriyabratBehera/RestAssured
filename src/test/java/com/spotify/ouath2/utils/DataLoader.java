@@ -8,7 +8,7 @@ public class DataLoader {
 
 
     private DataLoader() {
-        properties = PropertyUtils.propertyLoader("src/test/resources/config.properties");
+        properties = PropertyUtils.propertyLoader("src/test/resources/data.properties");
     }
 
     public static DataLoader getInstance(){

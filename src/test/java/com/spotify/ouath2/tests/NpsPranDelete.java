@@ -1,5 +1,6 @@
 package com.spotify.ouath2.tests;
 
+import com.spotify.ouath2.api.StatusCode;
 import com.spotify.ouath2.api.applicationApi.PlaylistApi;
 import com.spotify.ouath2.pojo.Playlist;
 import io.restassured.response.Response;
@@ -7,6 +8,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static com.spotify.ouath2.api.Route.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 
 public class NpsPranDelete {
 
@@ -15,8 +18,10 @@ public class NpsPranDelete {
 
         Response response= PlaylistApi.DELETE(API +  NPS + DELETE,"");
 
-        int statusCode=response.getStatusCode();
-        Assert.assertEquals(200,statusCode);
+        assertStatusCode(response.statusCode(), StatusCode.CODE_200);
 
+    }
+    public void assertStatusCode(int  actualStatusCode, StatusCode statusCode){
+        assertThat(actualStatusCode,equalTo(statusCode.code));
     }
 }
