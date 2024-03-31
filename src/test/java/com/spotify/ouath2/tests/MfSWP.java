@@ -5,6 +5,7 @@ import com.spotify.ouath2.api.applicationApi.PlaylistApi;
 import com.spotify.ouath2.pojo.Playlist;
 import com.spotify.ouath2.utils.DataLoader;
 import io.restassured.response.Response;
+import org.hamcrest.Matchers;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -67,7 +68,7 @@ public class MfSWP {
         assertThat(responsePlaylist.getAmcOrderId(),equalTo(requestPlaylist.getAmcOrderId()));
     }
     public void assertStatusCode(int  actualStatusCode, StatusCode statusCode){
-        assertThat(actualStatusCode,equalTo(statusCode.code));
+        assertThat(actualStatusCode, equalTo(statusCode.code));
     }
 
 

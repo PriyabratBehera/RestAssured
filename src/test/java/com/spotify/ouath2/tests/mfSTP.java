@@ -25,10 +25,14 @@ public class mfSTP {
         assertStatusCode(response.statusCode(), StatusCode.CODE_200);
     }
     @Test(priority = 2)
-    public void checkSWPStatus(){
+    public void checkSTPStatus(){
         Response response= PlaylistApi.get(BASE_PATH + MF_SWITCH_PLANS+"/"+mf_stp_id,"");
 
         assertStatusCode(response.statusCode(), StatusCode.CODE_200);
+        String frequency=response.path("frequency");
+        String mobNo=response.path("consent.mobile");
+        System.out.println("Installments frequency: "+frequency);
+        System.out.println("Mobile number: "+mobNo);
     }
 
     @Test(priority = 3)
